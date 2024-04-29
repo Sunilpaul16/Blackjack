@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <link rel="stylesheet" href="Blackjack.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Blackjack</h1>
+    <h2>Dealer<p id = "dSum"></p></h2>
+        <div id = "dealerHand" >
+            <img id="dealer-card1" src="Cards/Card-Back.png" alt="Dealer Card 1">
+            <img id="dealer-card2" src="Cards/Card-Back.png" alt="Dealer Card 2">
+        </div>
+    <h2>Player<p id = "pSum"></p></h2>
+        <div id = "playerHand" >
+            <img id="player-card1" src="Cards/Card-Back.png" alt="Player Card 1">
+            <img id="player-card2" src="Cards/Card-Back.png" alt="Player Card 2">
+        </div>
+    <h2 id ="Result" >
+
+    </h2>
+    <div id="buttons">
+        <button id = "hitBtn" class="button">Hit</button>
+        <button id = "standBtn" class="button">Stand</button><br><br>
+        <button id = "newGameBtn" class="button">Replay</button>
+    </div>
+    
+    <div class = "left-align" >
+        <p id = "rules" style="text-align: left;">Basic Rules
+            <ul id = "BasicRules">
+                <li>Objective:Beat dealer without exceeding 21</li>
+                <li>Card Values:Number cards = Number on card, face card = 10 Ace = 1 or 11</li>
+                <li>Deal:Player gets 2 cards, dealer gets 2 one facing up </li>
+                <li>Player turn:Hit = get another card stand = Keep current hand </li>
+                <li>Dealer Turn:Reveal card,hit until 17+, then stand.</li>
+                <li>Winning/Losing:Beat dealer without exceeding 21, bust if over.</li>
+            </ul>
+        <a href="https://en.wikipedia.org/wiki/Blackjack?__s=ngynj8g7zxh1qbsaimgh&utm_source=drip&utm_medium=email&utm_campaign=Coding+assignment&utm_content=Your+coding+assignment" target="_blank" >
+            Click Here For Detailed Blackjack Rules
+        </a>
+        </p>
+    </div>
+    <script src="Blackjack.js"></script>
+</body>
+</html>
