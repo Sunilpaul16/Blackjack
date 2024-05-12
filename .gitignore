@@ -1,1 +1,3 @@
 # ignore all .gitignore files 
+*image.png
+
