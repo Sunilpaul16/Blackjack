@@ -1,4 +1,6 @@
-# GitHubTest
-Hello!
+# Blackjack Game 
 
-Bye
+A simple classic blackjack card game.
+
+
+Created By Sunil Paul. 
