@@ -12,7 +12,7 @@ having insufficient cards in the deck due to new cards not been added new game
 Additionally while was reviewing the code I realized that i did not consider the logic of ace
 when first two cards were ace.I have implemented the twoAce function for it. 
 
-Made some other minor adjustments 
+Made some other minor adjustments
 */
 
 const hitBtn = $("#hitBtn");
