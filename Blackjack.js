@@ -1,19 +1,5 @@
 $(document).ready(function() {
-/*
-Convert the JS file to jQuery - Replaced all the document.getElementById with jQuery
 
-Implement Ace logic correctly - Reviewed the corrected the mistake. it was due to 
-newly drawn card not being added to ace count value before it was calculated.
-moved the ace counter to appropriate position
-
-App breaks after hitting replay many times - Addressed this issued which was caused by
-having insufficient cards in the deck due to new cards not been added new game 
-
-Additionally while was reviewing the code I realized that i did not consider the logic of ace
-when first two cards were ace.I have implemented the twoAce function for it. 
-
-Made some other minor adjustments
-*/
 
 const hitBtn = $("#hitBtn");
 const standBtn = $("#standBtn");
