@@ -1,281 +1,286 @@
-$(document).ready(function() {
+$(document).ready(function () {
+  const hitBtn = $('#hitBtn');
+  const standBtn = $('#standBtn');
+  const newGameBtn = $('#newGameBtn');
 
+  let dealerSum = 0;
+  let playerSum = 0;
+  let dealerAceCount = 0;
+  let playerAceCount = 0;
+  let card = [];
 
-const hitBtn = $("#hitBtn");
-const standBtn = $("#standBtn");
-const newGameBtn = $("#newGameBtn");
+  ////////////////////////
 
-let dealerSum = 0 ;
-let playerSum = 0 ;
-let dealerAceCount = 0 ;
-let playerAceCount = 0 ;
-let card =[] ;
+  function createDeck() {
+    let cardNum = [
+      'A',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7',
+      '8',
+      '9',
+      '10',
+      'J',
+      'Q',
+      'K',
+    ];
+    let cardType = ['C', 'D', 'H', 'S'];
 
-////////////////////////
-
-function createDeck(){
-    let cardNum = ["A","2", "3", "4","5", "6","7","8","9","10","J","Q","K"];
-    let cardType = ["C", "D","H", "S"];
-
-    for(let i = 0; i< cardType.length; i++){
-        for(let j =0; j< cardNum.length; j++){
-            card.push(cardNum[j]+ "_" +cardType[i]);
-        }
+    for (let i = 0; i < cardType.length; i++) {
+      for (let j = 0; j < cardNum.length; j++) {
+        card.push(cardNum[j] + '_' + cardType[i]);
+      }
     }
     return card;
-    
-}
- 
+  }
 
-card = createDeck();
+  card = createDeck();
 
-////////////////////////
+  ////////////////////////
 
-function shuffle(){
-    for(let i = 0 ;i<card.length;i++ ) {
-       let j =  Math.floor(Math.random()*card.length);
-       [card[i], card[j]] = [card[j], card[i]];
+  function shuffle() {
+    for (let i = 0; i < card.length; i++) {
+      let j = Math.floor(Math.random() * card.length);
+      [card[i], card[j]] = [card[j], card[i]];
     }
-    
+
     // console.log(card);
-}
+  }
 
-////////////////////////
+  ////////////////////////
 
-function dealerCard1(){
+  function dealerCard1() {
     let dCard1 = card.pop();
-    $("#dealer-card1").attr(`src`,`Cards/${dCard1}.png`);
-   
+    $('#dealer-card1').attr(`src`, `Cards/${dCard1}.png`);
+
     // console.log(dCard1) ;
-    
+
     dealerSum += cardValue(dCard1);
     dealerAceCount += checkAce(dCard1);
-  
+
     // console.log(dealerSum);
-   
-    $("#dSum").text(dealerSum);
-}
 
-////////////////////////
+    $('#dSum').text(dealerSum);
+  }
 
-function dealerCards2(){
+  ////////////////////////
+
+  function dealerCards2() {
     let dCard2 = card.pop();
-    $("#dealer-card2").attr(`src`, `Cards/${dCard2}.png`) ;
-   
+    $('#dealer-card2').attr(`src`, `Cards/${dCard2}.png`);
+
     // console.log(dCard2);
 
     dealerSum += cardValue(dCard2);
-    dealerAceCount += checkAce(dCard2) ;
-   
+    dealerAceCount += checkAce(dCard2);
+
     // console.log(dealerSum);
-   
-    $("#dSum").text(dealerSum);
 
-}
+    $('#dSum').text(dealerSum);
+  }
 
-////////////////////////
+  ////////////////////////
 
-function playerCard1(){
+  function playerCard1() {
     let pCard = card.pop();
-    $("#player-card1").attr(`src` ,`Cards/${pCard}.png`);
-   
+    $('#player-card1').attr(`src`, `Cards/${pCard}.png`);
+
     // console.log(pCard);
 
     playerSum += cardValue(pCard);
     playerAceCount += checkAce(pCard);
- 
+
     // console.log(playerSum);
-}
+  }
 
-/////////////////////////
+  /////////////////////////
 
-function playerCards2() {
-    let pCard2 = card.pop() ;
-    $("#player-card2").attr(`src` , `Cards/${pCard2}.png`);
+  function playerCards2() {
+    let pCard2 = card.pop();
+    $('#player-card2').attr(`src`, `Cards/${pCard2}.png`);
     // console.log(pCard2);
 
     playerSum += cardValue(pCard2);
     playerAceCount += checkAce(pCard2);
-   
+
     // console.log(playerSum);
-   
-    $("#pSum").text(playerSum) ;
 
-}
+    $('#pSum').text(playerSum);
+  }
 
-///////////////////
+  ///////////////////
 
-function startGame(){
+  function startGame() {
     createDeck();
     shuffle(card);
     dealerCard1();
     playerCard1();
-    playerCards2(); 
-  
+    playerCards2();
+
     // dealerCards2();
-   
-    $("#dealer-card2").attr(`src` ,`Cards/Card-Back.png`);
+
+    $('#dealer-card2').attr(`src`, `Cards/Card-Back.png`);
     twoAcePlayer();
     twoAceDealer();
-    $("#pSum").text(playerSum);
-    $("#dSum").text(dealerSum); 
-}
+    $('#pSum').text(playerSum);
+    $('#dSum').text(dealerSum);
+  }
 
-//////////////////////////
+  //////////////////////////
 
-function cardValue(card){
-    let data = card.split("_");
-    let value = data[0] ;
-    if(isNaN(value)){
-        if (value == "A"){
-            return 11;
-        }
-        return 10;
+  function cardValue(card) {
+    let data = card.split('_');
+    let value = data[0];
+    if (isNaN(value)) {
+      if (value == 'A') {
+        return 11;
+      }
+      return 10;
     }
     return parseInt(value);
-}
+  }
 
-//////////////////////////
+  //////////////////////////
 
-function checkAce(card){
-    if (card[0]=== "A"){
-        return 1;
+  function checkAce(card) {
+    if (card[0] === 'A') {
+      return 1;
     }
     return 0;
-}
+  }
 
-////////////////
+  ////////////////
 
-function twoAcePlayer(){
-    if (playerSum  > 21  && playerAceCount === 2){
-        playerSum -= 10;
-        playerAceCount--;
+  function twoAcePlayer() {
+    if (playerSum > 21 && playerAceCount === 2) {
+      playerSum -= 10;
+      playerAceCount--;
     }
-}
-function twoAceDealer(){
-    if (dealerSum  > 21  && dealerAceCount === 2){
-        dealerSum -= 10;
-        dealerAceCount--;
+  }
+  function twoAceDealer() {
+    if (dealerSum > 21 && dealerAceCount === 2) {
+      dealerSum -= 10;
+      dealerAceCount--;
     }
-}
+  }
 
-//////////////////////////
+  //////////////////////////
 
-function playerDrawCard(){
-    if (playerSum  >= 21){
-        return;
+  function playerDrawCard() {
+    if (playerSum >= 21) {
+      return;
     }
     let newCard = card.pop();
-    let img = $("<img>").attr(`src`, `Cards/${newCard}.png`).css("height", "200px");
-    
+    let img = $('<img>')
+      .attr(`src`, `Cards/${newCard}.png`)
+      .css('height', '200px');
+
     playerSum += cardValue(newCard);
     playerAceCount += checkAce(newCard);
     checkAce(newCard);
     let value = cardValue(newCard);
-    if (playerSum + value > 21 && playerAceCount > 0){
-        playerSum -= 10;
-        playerAceCount--;
+    if (playerSum + value > 21 && playerAceCount > 0) {
+      playerSum -= 10;
+      playerAceCount--;
     }
 
-    $("#playerHand").append(img);
-   
+    $('#playerHand').append(img);
+
     // console.log(playerAceCount);
-}
+  }
 
-//////////////////
+  //////////////////
 
-function dealerDrawCard(){
-    if (dealerSum >= 21){
-        return;
+  function dealerDrawCard() {
+    if (dealerSum >= 21) {
+      return;
     }
     let newCard = card.pop();
-    let img = $("<img>").attr(`src`, `Cards/${newCard}.png`).css("height", "200px");
+    let img = $('<img>')
+      .attr(`src`, `Cards/${newCard}.png`)
+      .css('height', '200px');
     let value = cardValue(newCard);
-    if (dealerSum + value > 21 && dealerAceCount >0){
-        dealerSum -=  10;
-        dealerAceCount -- ;
+    if (dealerSum + value > 21 && dealerAceCount > 0) {
+      dealerSum -= 10;
+      dealerAceCount--;
     }
-    $("#dealerHand").append(img);
+    $('#dealerHand').append(img);
 
     dealerSum += cardValue(newCard);
     dealerAceCount += checkAce(newCard);
-}
+  }
 
-////////////////////////////
+  ////////////////////////////
 
-function stand(){
-    hitBtn.prop("disabled", true);
-    standBtn.prop("disabled", true);
+  function stand() {
+    hitBtn.prop('disabled', true);
+    standBtn.prop('disabled', true);
 
     dealerCards2();
     twoAceDealer();
-    while (dealerSum <17){
-        dealerDrawCard();
+    while (dealerSum < 17) {
+      dealerDrawCard();
     }
     results();
-    $("#dSum").text(dealerSum);
-}
+    $('#dSum').text(dealerSum);
+  }
 
-/////////////////////////
+  /////////////////////////
 
-function results(){
+  function results() {
     let results;
-    if (playerSum >21 ){
-        results = "Dealer Win";
+    if (playerSum > 21) {
+      results = 'Dealer Win';
+    } else if (dealerSum > 21) {
+      results = 'Player Win';
+    } else if (playerSum > dealerSum) {
+      results = 'Player Win';
+    } else if (playerSum === dealerSum) {
+      results = 'Tie';
+    } else if (playerSum < dealerSum) {
+      results = 'Dealer Win';
     }
-    else if (dealerSum >  21){
-        results = "Player Win" ;
-    }
-    else if (playerSum > dealerSum){
-        results = "Player Win";
-    }   
-    else if (playerSum === dealerSum){
-        results = "Tie";
-    }
-    else if (playerSum < dealerSum){
-        results = "Dealer Win";
-    }
-    
-    $("#Result").text(results);
-    
-}
 
-///////////////////////////
+    $('#Result').text(results);
+  }
 
-function hit(){
+  ///////////////////////////
+
+  function hit() {
     playerDrawCard();
-    $("#pSum").text( playerSum) ;
-}
+    $('#pSum').text(playerSum);
+  }
 
-////////////////////////
+  ////////////////////////
 
-function playAgain(){
-    dealerSum = 0 ;
-    playerSum = 0 ;
+  function playAgain() {
+    dealerSum = 0;
+    playerSum = 0;
     dealerAceCount = 0;
     playerAceCount = 0;
-   
-    let dealerHand = $("#dealerHand");
+
+    let dealerHand = $('#dealerHand');
     dealerHand.children().slice(2).remove();
-   
-    let playerHand = $("#playerHand");
+
+    let playerHand = $('#playerHand');
     playerHand.children().slice(2).remove();
-       
-    $("#pSum").text(playerSum) ;
-    $("#Result").text ("");
-   
-    hitBtn.prop("disabled", false);
-    standBtn.prop("disabled", false);
+
+    $('#pSum').text(playerSum);
+    $('#Result').text('');
+
+    hitBtn.prop('disabled', false);
+    standBtn.prop('disabled', false);
     startGame();
+  }
 
-}
+  //////////////////////
 
-//////////////////////
+  hitBtn.click(hit);
+  standBtn.click(stand);
+  newGameBtn.click(playAgain);
 
-hitBtn.click(hit);
-standBtn.click(stand);
-newGameBtn.click(playAgain);
-
-startGame() ;
-
+  startGame();
 });
