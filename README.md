@@ -1,6 +1,5 @@
-# Blackjack Game 
+# Blackjack Game
 
 A simple classic blackjack card game.
 
-
-Created By Sunil Paul. 
+Created By Sunil Paul.
