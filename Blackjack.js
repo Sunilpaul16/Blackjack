@@ -25,7 +25,7 @@ $(document).ready(function () {
       '10',
       'J',
       'Q',
-      'K',
+      'K'
     ];
     let cardType = ['C', 'D', 'H', 'S'];
 
@@ -54,7 +54,7 @@ $(document).ready(function () {
 
   function dealerCard1() {
     let dCard1 = card.pop();
-    $('#dealer-card1').attr(`src`, `Cards/${dCard1}.png`);
+    $('#dealer-card1').attr('src', `Cards/${dCard1}.png`);
 
     // console.log(dCard1) ;
 
@@ -70,7 +70,7 @@ $(document).ready(function () {
 
   function dealerCards2() {
     let dCard2 = card.pop();
-    $('#dealer-card2').attr(`src`, `Cards/${dCard2}.png`);
+    $('#dealer-card2').attr('src', `Cards/${dCard2}.png`);
 
     // console.log(dCard2);
 
@@ -86,7 +86,7 @@ $(document).ready(function () {
 
   function playerCard1() {
     let pCard = card.pop();
-    $('#player-card1').attr(`src`, `Cards/${pCard}.png`);
+    $('#player-card1').attr('src', `Cards/${pCard}.png`);
 
     // console.log(pCard);
 
@@ -100,7 +100,7 @@ $(document).ready(function () {
 
   function playerCards2() {
     let pCard2 = card.pop();
-    $('#player-card2').attr(`src`, `Cards/${pCard2}.png`);
+    $('#player-card2').attr('src', `Cards/${pCard2}.png`);
     // console.log(pCard2);
 
     playerSum += cardValue(pCard2);
@@ -122,7 +122,7 @@ $(document).ready(function () {
 
     // dealerCards2();
 
-    $('#dealer-card2').attr(`src`, `Cards/Card-Back.png`);
+    $('#dealer-card2').attr('src', 'Cards/Card-Back.png');
     twoAcePlayer();
     twoAceDealer();
     $('#pSum').text(playerSum);
@@ -175,7 +175,7 @@ $(document).ready(function () {
     }
     let newCard = card.pop();
     let img = $('<img>')
-      .attr(`src`, `Cards/${newCard}.png`)
+      .attr('src', `Cards/${newCard}.png`)
       .css('height', '200px');
 
     playerSum += cardValue(newCard);
@@ -200,7 +200,7 @@ $(document).ready(function () {
     }
     let newCard = card.pop();
     let img = $('<img>')
-      .attr(`src`, `Cards/${newCard}.png`)
+      .attr('src', `Cards/${newCard}.png`)
       .css('height', '200px');
     let value = cardValue(newCard);
     if (dealerSum + value > 21 && dealerAceCount > 0) {
