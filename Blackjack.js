@@ -50,8 +50,6 @@ $(document).ready(function () {
     $('#dSum').text(dealerSum);
   }
 
-  ////////////////////////
-
   function dealerCards2() {
     let dCard2 = card.pop();
     $('#dealer-card2').attr('src', `Cards/${dCard2}.png`);
