@@ -53,47 +53,25 @@ $(document).ready(function () {
   function dealerCards2() {
     let dCard2 = card.pop();
     $('#dealer-card2').attr('src', `Cards/${dCard2}.png`);
-
-    // console.log(dCard2);
-
     dealerSum += cardValue(dCard2);
     dealerAceCount += checkAce(dCard2);
-
-    // console.log(dealerSum);
-
     $('#dSum').text(dealerSum);
   }
-
-  ////////////////////////
 
   function playerCard1() {
     let pCard = card.pop();
     $('#player-card1').attr('src', `Cards/${pCard}.png`);
-
-    // console.log(pCard);
-
     playerSum += cardValue(pCard);
     playerAceCount += checkAce(pCard);
-
-    // console.log(playerSum);
   }
-
-  /////////////////////////
 
   function playerCards2() {
     let pCard2 = card.pop();
     $('#player-card2').attr('src', `Cards/${pCard2}.png`);
-    // console.log(pCard2);
-
     playerSum += cardValue(pCard2);
     playerAceCount += checkAce(pCard2);
-
-    // console.log(playerSum);
-
     $('#pSum').text(playerSum);
   }
-
-  ///////////////////
 
   function startGame() {
     createDeck();
