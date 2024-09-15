@@ -9,8 +9,6 @@ $(document).ready(function () {
   let playerAceCount = 0;
   let card = [];
 
-  ////////////////////////
-
   function createDeck() {
     let cardNum = [
       'A',
@@ -28,7 +26,6 @@ $(document).ready(function () {
       'K'
     ];
     let cardType = ['C', 'D', 'H', 'S'];
-
     for (let i = 0; i < cardType.length; i++) {
       for (let j = 0; j < cardNum.length; j++) {
         card.push(cardNum[j] + '_' + cardType[i]);
@@ -36,33 +33,20 @@ $(document).ready(function () {
     }
     return card;
   }
-
   card = createDeck();
-
-  ////////////////////////
 
   function shuffle() {
     for (let i = 0; i < card.length; i++) {
       let j = Math.floor(Math.random() * card.length);
       [card[i], card[j]] = [card[j], card[i]];
     }
-
-    // console.log(card);
   }
-
-  ////////////////////////
 
   function dealerCard1() {
     let dCard1 = card.pop();
     $('#dealer-card1').attr('src', `Cards/${dCard1}.png`);
-
-    // console.log(dCard1) ;
-
     dealerSum += cardValue(dCard1);
     dealerAceCount += checkAce(dCard1);
-
-    // console.log(dealerSum);
-
     $('#dSum').text(dealerSum);
   }
 
