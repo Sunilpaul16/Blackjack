@@ -152,8 +152,6 @@ $(document).ready(function () {
     // console.log(playerAceCount);
   }
 
-  //////////////////
-
   function dealerDrawCard() {
     if (dealerSum >= 21) {
       return;
@@ -173,8 +171,6 @@ $(document).ready(function () {
     dealerAceCount += checkAce(newCard);
   }
 
-  ////////////////////////////
-
   function stand() {
     hitBtn.prop('disabled', true);
     standBtn.prop('disabled', true);
@@ -187,8 +183,6 @@ $(document).ready(function () {
     results();
     $('#dSum').text(dealerSum);
   }
-
-  /////////////////////////
 
   function results() {
     let results;
@@ -203,18 +197,13 @@ $(document).ready(function () {
     } else if (playerSum < dealerSum) {
       results = 'Dealer Win';
     }
-
     $('#Result').text(results);
   }
-
-  ///////////////////////////
 
   function hit() {
     playerDrawCard();
     $('#pSum').text(playerSum);
   }
-
-  ////////////////////////
 
   function playAgain() {
     dealerSum = 0;
