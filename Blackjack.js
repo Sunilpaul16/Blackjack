@@ -101,8 +101,6 @@ $(document).ready(function () {
     return parseInt(value);
   }
 
-  //////////////////////////
-
   function checkAce(card) {
     if (card[0] === 'A') {
       return 1;
