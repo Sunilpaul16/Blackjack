@@ -108,8 +108,6 @@ $(document).ready(function () {
     return 0;
   }
 
-  ////////////////
-
   function twoAcePlayer() {
     if (playerSum > 21 && playerAceCount === 2) {
       playerSum -= 10;
