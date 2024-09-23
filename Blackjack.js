@@ -80,8 +80,6 @@ $(document).ready(function () {
     playerCard1();
     playerCards2();
 
-    // dealerCards2();
-
     $('#dealer-card2').attr('src', 'Cards/Card-Back.png');
     twoAcePlayer();
     twoAceDealer();
