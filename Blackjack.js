@@ -79,7 +79,6 @@ $(document).ready(function () {
     dealerCard1();
     playerCard1();
     playerCards2();
-
     $('#dealer-card2').attr('src', 'Cards/Card-Back.png');
     twoAcePlayer();
     twoAceDealer();
@@ -112,6 +111,7 @@ $(document).ready(function () {
       playerAceCount--;
     }
   }
+
   function twoAceDealer() {
     if (dealerSum > 21 && dealerAceCount === 2) {
       dealerSum -= 10;
@@ -127,7 +127,6 @@ $(document).ready(function () {
     let img = $('<img>')
       .attr('src', `Cards/${newCard}.png`)
       .css('height', '200px');
-
     playerSum += cardValue(newCard);
     playerAceCount += checkAce(newCard);
     checkAce(newCard);
@@ -195,7 +194,6 @@ $(document).ready(function () {
     playerSum = 0;
     dealerAceCount = 0;
     playerAceCount = 0;
-
     let dealerHand = $('#dealerHand');
     dealerHand.children().slice(2).remove();
     let playerHand = $('#playerHand');
