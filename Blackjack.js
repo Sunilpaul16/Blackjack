@@ -127,8 +127,6 @@ $(document).ready(function () {
     }
   }
 
-  //////////////////////////
-
   function playerDrawCard() {
     if (playerSum >= 21) {
       return;
@@ -146,10 +144,7 @@ $(document).ready(function () {
       playerSum -= 10;
       playerAceCount--;
     }
-
     $('#playerHand').append(img);
-
-    // console.log(playerAceCount);
   }
 
   function dealerDrawCard() {
