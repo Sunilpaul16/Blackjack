@@ -161,7 +161,6 @@ $(document).ready(function () {
       dealerAceCount--;
     }
     $('#dealerHand').append(img);
-
     dealerSum += cardValue(newCard);
     dealerAceCount += checkAce(newCard);
   }
@@ -169,7 +168,6 @@ $(document).ready(function () {
   function stand() {
     hitBtn.prop('disabled', true);
     standBtn.prop('disabled', true);
-
     dealerCards2();
     twoAceDealer();
     while (dealerSum < 17) {
@@ -208,19 +206,14 @@ $(document).ready(function () {
 
     let dealerHand = $('#dealerHand');
     dealerHand.children().slice(2).remove();
-
     let playerHand = $('#playerHand');
     playerHand.children().slice(2).remove();
-
     $('#pSum').text(playerSum);
     $('#Result').text('');
-
     hitBtn.prop('disabled', false);
     standBtn.prop('disabled', false);
     startGame();
   }
-
-  //////////////////////
 
   hitBtn.click(hit);
   standBtn.click(stand);
