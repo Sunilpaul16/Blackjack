@@ -89,8 +89,6 @@ $(document).ready(function () {
     $('#dSum').text(dealerSum);
   }
 
-  //////////////////////////
-
   function cardValue(card) {
     let data = card.split('_');
     let value = data[0];
