@@ -82,6 +82,7 @@ $(document).ready(function () {
     $('#dealer-card2').attr('src', 'Cards/Card-Back.png');
     twoAcePlayer();
     twoAceDealer();
+
     $('#pSum').text(playerSum);
     $('#dSum').text(dealerSum);
   }
